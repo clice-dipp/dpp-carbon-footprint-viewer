@@ -1,0 +1,401 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "AAS(X) Carbon Footprint API",
+    "description": "Backend for the generation of Carbon Footprints from AAS- and AASX-files.",
+    "contact": {
+      "name": "Moritz Bock",
+      "email": "mvb1996@gmail.com"
+    },
+    "version": "0.0.1"
+  },
+  "servers": [
+    {
+      "url": "/api/v3.0"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Asset Controller",
+      "description": "Get various contents of assets"
+    }
+  ],
+  "paths": {
+    "/external-shells/{url}": {
+      "get": {
+        "tags": [
+          "Asset Controller"
+        ],
+        "description": "Returns a all Asset Administration Shells contained in an environment from a url",
+        "operationId": "getExternalShell",
+        "parameters": [
+          {
+            "name": "url",
+            "in": "path",
+            "description": "url where the shell can be downloaded (UTF8-BASE64-URL-encoded)",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success: AssetAdministrationShells",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AssetAdministrationShell"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "File was not found or empty",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "File is cannot be parsed (is most likely invalid or no AAS(X)/JSON)",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ApiError": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "error": {
+            "type": "string"
+          },
+          "trace": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          }
+        }
+      },
+      "AdministrativeInformation": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "string"
+          },
+          "revision": {
+            "type": "string"
+          },
+          "creator": {
+            "$ref": "#/components/schemas/Reference"
+          },
+          "templateId": {
+            "type": "string"
+          },
+          "embeddedDataSpecifications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EmbeddedDataSpecification"
+            }
+          }
+        }
+      },
+      "AssetAdministrationShell": {
+        "type": "object",
+        "properties": {
+          "submodels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Reference"
+            }
+          },
+          "derivedFrom": {
+            "$ref": "#/components/schemas/Reference"
+          },
+          "assetInformation": {
+            "$ref": "#/components/schemas/AssetInformation"
+          },
+          "id": {
+            "type": "string"
+          },
+          "administration": {
+            "$ref": "#/components/schemas/AdministrativeInformation"
+          },
+          "description": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LangStringTextType"
+            }
+          },
+          "displayName": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LangStringNameType"
+            }
+          },
+          "idShort": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "extensions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Extension"
+            }
+          },
+          "embeddedDataSpecifications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EmbeddedDataSpecification"
+            }
+          }
+        }
+      },
+      "AssetInformation": {
+        "type": "object",
+        "properties": {
+          "assetKind": {
+            "type": "string",
+            "enum": [
+              "Instance",
+              "NotApplicable",
+              "Type"
+            ]
+          },
+          "assetType": {
+            "type": "string"
+          },
+          "globalAssetId": {
+            "type": "string"
+          },
+          "specificAssetIds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SpecificAssetId"
+            }
+          },
+          "defaultThumbnail": {
+            "$ref": "#/components/schemas/Resource"
+          }
+        }
+      },
+      "DataSpecificationContent": {
+        "type": "object"
+      },
+      "EmbeddedDataSpecification": {
+        "type": "object",
+        "properties": {
+          "dataSpecificationContent": {
+            "$ref": "#/components/schemas/DataSpecificationContent"
+          },
+          "dataSpecification": {
+            "$ref": "#/components/schemas/Reference"
+          }
+        }
+      },
+      "Extension": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          },
+          "valueType": {
+            "type": "string",
+            "enum": [
+              "xs:anyURI",
+              "xs:base64Binary",
+              "xs:boolean",
+              "xs:byte",
+              "xs:date",
+              "xs:dateTime",
+              "xs:decimal",
+              "xs:double",
+              "xs:duration",
+              "xs:float",
+              "xs:gDay",
+              "xs:gMonth",
+              "xs:gMonthDay",
+              "xs:gYear",
+              "xs:gYearMonth",
+              "xs:hexBinary",
+              "xs:int",
+              "xs:integer",
+              "xs:long",
+              "xs:negativeInteger",
+              "xs:nonNegativeInteger",
+              "xs:nonPositiveInteger",
+              "xs:positiveInteger",
+              "xs:short",
+              "xs:string",
+              "xs:time",
+              "xs:unsignedByte",
+              "xs:unsignedInt",
+              "xs:unsignedLong",
+              "xs:unsignedShort"
+            ]
+          },
+          "refersTo": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Reference"
+            }
+          },
+          "supplementalSemanticIds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Reference"
+            }
+          },
+          "semanticId": {
+            "$ref": "#/components/schemas/Reference"
+          }
+        }
+      },
+      "Key": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "AnnotatedRelationshipElement",
+              "AssetAdministrationShell",
+              "BasicEventElement",
+              "Blob",
+              "Capability",
+              "ConceptDescription",
+              "DataElement",
+              "Entity",
+              "EventElement",
+              "File",
+              "FragmentReference",
+              "GlobalReference",
+              "Identifiable",
+              "MultiLanguageProperty",
+              "Operation",
+              "Property",
+              "Range",
+              "Referable",
+              "ReferenceElement",
+              "RelationshipElement",
+              "Submodel",
+              "SubmodelElement",
+              "SubmodelElementCollection",
+              "SubmodelElementList"
+            ]
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "LangStringNameType": {
+        "type": "object",
+        "properties": {
+          "language": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          }
+        }
+      },
+      "LangStringTextType": {
+        "type": "object",
+        "properties": {
+          "language": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          }
+        }
+      },
+      "Reference": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "ExternalReference",
+              "ModelReference"
+            ]
+          },
+          "keys": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Key"
+            }
+          },
+          "referredSemanticId": {
+            "$ref": "#/components/schemas/Reference"
+          }
+        }
+      },
+      "Resource": {
+        "type": "object",
+        "properties": {
+          "contentType": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          }
+        }
+      },
+      "SpecificAssetId": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          },
+          "externalSubjectId": {
+            "$ref": "#/components/schemas/Reference"
+          },
+          "supplementalSemanticIds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Reference"
+            }
+          },
+          "semanticId": {
+            "$ref": "#/components/schemas/Reference"
+          }
+        }
+      }
+    }
+  }
+}

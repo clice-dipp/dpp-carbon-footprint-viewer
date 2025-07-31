@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="512"
+   height="512"
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25)"
+   sodipodi:docname="logo.inkscape.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     showguides="false"
+     inkscape:zoom="1"
+     inkscape:cx="263"
+     inkscape:cy="356"
+     inkscape:window-width="2560"
+     inkscape:window-height="1387"
+     inkscape:window-x="1440"
+     inkscape:window-y="509"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer2" />
+  <defs
+     id="defs1">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1">
+      <rect
+         style="fill:#11253f;fill-opacity:1"
+         id="rect2"
+         width="1844.722"
+         height="618.67969"
+         x="-10"
+         y="256" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     sodipodi:insensitive="true">
+    <circle
+       style="fill:#0e263c;fill-opacity:1"
+       id="path1"
+       cx="256"
+       cy="256"
+       r="256" />
+    <circle
+       style="fill:#317e69;fill-opacity:1"
+       id="path1-6"
+       cx="256"
+       cy="256"
+       r="256"
+       clip-path="url(#clipPath1)" />
+    <circle
+       style="fill:#0e263c;fill-opacity:1"
+       id="path2"
+       cx="256"
+       cy="256"
+       r="96" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer 2">
+    <path
+       style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:15.6529;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="path4"
+       sodipodi:type="arc"
+       sodipodi:cx="255.99974"
+       sodipodi:cy="255.99974"
+       sodipodi:rx="42.222466"
+       sodipodi:ry="42.222466"
+       sodipodi:start="0.78539816"
+       sodipodi:end="5.4977871"
+       sodipodi:arc-type="arc"
+       d="m 285.85553,285.85553 a 42.222466,42.222466 0 0 1 -59.71158,0 42.222466,42.222466 0 0 1 0,-59.71158 42.222466,42.222466 0 0 1 59.71158,0"
+       sodipodi:open="true" />
+    <circle
+       style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:15.6529;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="path4-5"
+       cx="131.59892"
+       cy="380.4989"
+       r="42.222466" />
+    <circle
+       style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:15.6529;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="path4-5-4"
+       cx="380.4989"
+       cy="131.59892"
+       r="42.222466" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:20;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       d="m 172.275,319.725 23,-23"
+       id="path6" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:20;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       d="m 296.725,195.725 23,-23"
+       id="path6-9" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:20;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       d="m 192.275,339.725 23,-23"
+       id="path6-2" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:20;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       d="m 316.725,215.275 23,-23"
+       id="path6-9-9" />
+  </g>
+</svg>
